@@ -1,6 +1,6 @@
 {
   "name": "ps-gen",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "personal generate template tool by cli",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "inquirer": "^8.2.6"
   },
   "homepage": "https://github.com/doooss/ps-gen",
-  "repository":{
+  "repository": {
     "type": "git",
     "url": "https://github.com/doooss/ps-gen.git"
   },
