@@ -2,17 +2,33 @@
 
 Personal CLI Template Tool Like @turbo/gen
 
-test version..
+## How to use
 
-Working...
+1. install package (Dev recommand)
 
-## Example
+```zsh
+    npm i -D ps-gen
+```
+
+2. Please add ps-gen to the scripts in package.json as follows:
+
+```json
+
+..
+    "scripts":{
+        "gen" : "ps-gen"
+    }
+..
+
+```
+
+3. Please write the following in &lt;project-root&gt;/cli/template/&lt;template-name&gt;/config.json:
 
 > ex. root/cli/template/hooks/config.json
 
 ```json
 {
-    "description": "keeping the naming convention (ex use + PascalCase)",
+    "description": "keeping the naming convention (ex use + PascalCase)", 
     "prompts": [
         {
             "type": "input",
@@ -24,12 +40,12 @@ Working...
     "actions": [
         {
             "type": "add",
-            "path": "{{name}}/{{name}}.test.ts",
+            "path": "{{name}}/{{name}}.test.ts",  // src/hooks/{{name}}/{{name}}.test.ts 
             "templateFile": "test.hbs"
         },
         {
             "type": "add",
-            "path": "{{name}}/index.ts",
+            "path": "{{name}}/index.ts",        // src/hooks/{{name}}/index.ts 
             "templateFile": "export.hbs"
         },
         {
@@ -38,7 +54,7 @@ Working...
             "templateFile": "hook.hbs"
         },
         {
-            "type": "append",
+            "type": "append", 
             "path": "index.ts",
             "template": "export { default as {{ name }} } from \"./{{ name }}\""
         }
@@ -47,3 +63,5 @@ Working...
 
 
 ```
+
+4. In the folder where config.json is located, please create the desired template using the .hbs
