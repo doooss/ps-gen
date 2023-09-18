@@ -1,9 +1,13 @@
+#!/usr/bin/env node
+
 const inquirer = require('inquirer') ;
 const handlebars = require('handlebars')
 const fs = require('fs');
 const path = require('path');
 
-const TEMPLATES_ROOT = path.join(__dirname, '/cli/templates');
+const currentDir = process.cwd();
+
+const TEMPLATES_ROOT = path.join(currentDir, '/cli/templates');
 
 
 function ensureDirectoryExistence(filePath) {
@@ -78,7 +82,7 @@ async function executeGenerator(generatorKey) {
         const compiledTemplate = handlebars.compile(templateContent);
 
         // baseUrl을 포함하여 출력 경로를 조정합니다.
-        const outputPath = path.join(__dirname, '/', baseUrl, action.path.replace(/{{name}}/g, answers.name));
+        const outputPath = path.join(currentDir, '/', baseUrl, action.path.replace(/{{name}}/g, answers.name));
 
         if (action.type === 'add') {
             ensureDirectoryExistence(outputPath);

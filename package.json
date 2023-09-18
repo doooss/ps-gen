@@ -21,5 +21,8 @@
   "repository":{
     "type": "git",
     "url": "https://github.com/doooss/ps-gen.git"
+  },
+  "bin": {
+    "ps-gen": "./index.js"
   }
 }
