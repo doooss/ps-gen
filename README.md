@@ -14,11 +14,9 @@ Personal CLI Template Tool Like @turbo/gen
 
 ```json
 
-..
     "scripts":{
         "gen" : "ps-gen"
     }
-..
 
 ```
 
@@ -40,12 +38,12 @@ Personal CLI Template Tool Like @turbo/gen
     "actions": [
         {
             "type": "add",
-            "path": "{{name}}/{{name}}.test.ts",  // src/hooks/{{name}}/{{name}}.test.ts 
+            "path": "{{name}}/{{name}}.test.ts",
             "templateFile": "test.hbs"
         },
         {
             "type": "add",
-            "path": "{{name}}/index.ts",        // src/hooks/{{name}}/index.ts 
+            "path": "{{name}}/index.ts",       
             "templateFile": "export.hbs"
         },
         {
