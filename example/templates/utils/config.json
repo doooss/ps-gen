@@ -1,26 +1,13 @@
-# sample-cli
-
-Personal CLI Template Tool Like @turbo/gen
-
-test version..
-
-Working...
-
-## Example
-
-> ex. root/cli/template/hooks/config.json
-
-```json
 {
     "description": "keeping the naming convention (ex use + PascalCase)",
     "prompts": [
         {
             "type": "input",
             "name": "name",
-            "message": "What is the name of the hook?"
+            "message": "What is the name of the utils?"
         }
     ],
-    "baseUrl": "src/hooks",
+    "baseUrl": "src/utils",
     "actions": [
         {
             "type": "add",
@@ -44,6 +31,3 @@ Working...
         }
     ]
 }   
-
-
-```
