@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "author": "doooss",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "devDependencies": {
     "@types/node": "^20.6.2",
     "eslint": "^8.49.0"
