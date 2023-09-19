@@ -1,0 +1,11 @@
+{
+    "name": "example",
+    "version": "0.0.0",
+    "main": "index.js",
+    "scripts": {
+        "gen": "ps-gen"
+    },
+    "devDependencies": {
+        "ps-gen": "latest"
+    }
+}
