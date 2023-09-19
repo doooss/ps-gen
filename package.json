@@ -1,6 +1,6 @@
 {
   "name": "ps-gen",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "personal generate template tool by cli",
   "main": "index.js",
   "scripts": {
