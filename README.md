@@ -2,6 +2,8 @@
 
 Personal CLI Template Tool Like @turbo/gen
 
+> This code was authored by ChatGPT.
+
 ## How to use
 
 1. install package (Dev recommand)
