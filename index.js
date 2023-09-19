@@ -75,21 +75,30 @@ async function executeGenerator(generatorKey) {
     const answers = await inquirer.prompt(generator.prompts);
 
     for (const action of generator.actions) {
-        if(!action.templateFile) continue;
+        let templateContent = '';
 
-        const templatePath = path.join(templateBasePath, action.templateFile);
-        const templateContent = fs.readFileSync(templatePath, 'utf8');
+        // append type 작업에서 template 속성에서 내용을 직접 가져옵니다.
+        if (action.type === 'append' && action.template) {
+            templateContent = action.template;
+        } else if (action.templateFile) {
+            const templatePath = path.join(templateBasePath, action.templateFile);
+            templateContent = fs.readFileSync(templatePath, 'utf8');
+        }
+
         const compiledTemplate = handlebars.compile(templateContent);
 
         // baseUrl을 포함하여 출력 경로를 조정합니다.
         const outputPath = path.join(currentDir, '/', baseUrl, action.path.replace(/{{name}}/g, answers.name));
-
         if (action.type === 'add') {
             ensureDirectoryExistence(outputPath);
             fs.writeFileSync(outputPath, compiledTemplate(answers), 'utf8');
         } else if (action.type === 'append') {
-            const existingContent = fs.existsSync(outputPath) ? fs.readFileSync(outputPath, 'utf8') : '';
-            fs.writeFileSync(outputPath, existingContent + compiledTemplate(answers), 'utf8');
+            if (fs.existsSync(outputPath)) {
+                const existingContent = fs.readFileSync(outputPath, 'utf8');
+                fs.writeFileSync(outputPath, `${existingContent}\n${compiledTemplate(answers)}`, 'utf8');
+            } else {
+                fs.writeFileSync(outputPath, compiledTemplate(answers), 'utf8');
+            }
         }
     }
 }
