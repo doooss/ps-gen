@@ -16,7 +16,7 @@ function ensureDirectoryExistence(filePath) {
         return;
     }
     ensureDirectoryExistence(dirName);
-    fs.mkdirSync(dirName);
+    fs.mkdirSync(dirName, { recursive: true });
 }
 
 async function getGeneratorsFromTemplates() {
